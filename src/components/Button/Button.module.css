@@ -1,0 +1,94 @@
+.btn {
+  color: var(--white);
+  background-color: var(--button);
+  outline: none;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 200px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 150%;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--button-hover);
+  animation: none;
+}
+
+.home {
+  padding: 18px 55px;
+  animation: glow 1500ms infinite ease-in-out;
+  font-size: 20px;
+}
+
+@keyframes glow {
+  0% {
+    background: var(--button);
+    box-shadow: 0px 0px 1px var(--button);
+  }
+
+  50% {
+    background: var(--button);
+    box-shadow: 0px 0px 15px var(--button);
+  }
+
+  100% {
+    background: var(--button);
+    box-shadow: 0px 0px 1px var(--button);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .home {
+    padding: 16px 49px;
+    font-size: 16px;
+  }
+}
+
+.search {
+  padding: 16px 57px;
+}
+
+.picture {
+  margin-bottom: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .picture {
+    padding: 16px 40px;
+    position: absolute;
+    bottom: 0px;
+    width: auto;
+    margin-bottom: 0px;
+  }
+}
+
+.loadMore {
+  padding: 16px 32px;
+  border: 1px solid var(--gray-light);
+  border-radius: 200px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--main);
+  background-color: transparent;
+}
+
+.loadMore:hover,
+.loadMore:focus {
+  border: 1px solid var(--button-hover);
+  background-color: transparent;
+}
+
+.submitForm {
+  padding: 16px 60px;
+  font-weight: 600;
+  margin: 0 auto;
+}
