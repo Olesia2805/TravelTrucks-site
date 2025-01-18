@@ -1,0 +1,15 @@
+.typeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .typeList {
+    gap: 12px;
+    margin-bottom: 32px;
+    max-width: 360px;
+  }
+}
