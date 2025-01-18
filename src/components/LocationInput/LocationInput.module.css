@@ -1,0 +1,61 @@
+.location {
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .location {
+    font-size: 14px;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  max-width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .inputWrapper {
+    max-width: 360px;
+    margin-bottom: 40px;
+  }
+}
+
+.icon {
+  position: absolute;
+  left: 18px;
+  color: var(--gray);
+  transition: fill 0.5s ease;
+}
+
+.inputWrapper:hover .icon,
+.input:focus + .icon,
+.input:not(:placeholder-shown) + .icon {
+  color: var(--main);
+}
+
+.input {
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  font-size: 14px;
+  color: var(--main);
+  width: 100%;
+  padding: 14px 10px 14px 46px;
+  background: var(--inputs);
+  line-height: 150%;
+}
+
+@media only screen and (min-width: 768px) {
+  .input {
+    font-size: 16px;
+  }
+}
