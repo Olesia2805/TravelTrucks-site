@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { lazy, Suspense } from 'react';
 
 import Loader from './components/Loader/Loader';
-// import Navigation from './components/Navigation/Navigation';
+import Navigation from './components/Navigation/Navigation';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage'));
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <>
       <Toaster position="top-right" />
-      {/* <Navigation /> */}
+      <Navigation />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
