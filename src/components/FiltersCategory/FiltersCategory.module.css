@@ -1,0 +1,25 @@
+.name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  margin-bottom: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .name {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+.line {
+  margin-bottom: 12px;
+  width: 260px;
+}
+
+@media only screen and (min-width: 768px) {
+  .line {
+    margin-bottom: 24px;
+    width: 360px;
+  }
+}
