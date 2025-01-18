@@ -1,0 +1,38 @@
+.nav {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex: 1;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    gap: 32px;
+  }
+}
+
+.link {
+  color: var(--main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--button);
+}
+
+.isActive {
+  color: var(--button-hover);
+}
+
+.item {
+  color: var(--main);
+}
