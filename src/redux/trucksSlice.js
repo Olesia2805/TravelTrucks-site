@@ -11,11 +11,15 @@ const initialState = {
 
 export const fetchTrucks = createAsyncThunk(
   'trucks/fetchTrucks',
-  async offset => {
-    const response = await axios.get(
-      'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers'
-    );
-    return response.data.items.slice(offset, offset + 4);
+  async (offset, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers'
+      );
+      return response.data.items.slice(offset, offset + 4);
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
@@ -56,7 +60,7 @@ const trucksSlice = createSlice({
       })
       .addCase(fetchTrucks.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload || action.error.message;
       })
       .addCase(fetchTruckDetails.pending, state => {
         state.loading = true;
