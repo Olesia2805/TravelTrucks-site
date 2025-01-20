@@ -11,7 +11,7 @@ const TruckCard = ({ truck }) => {
     <>
       <img
         className={cardCss.img}
-        src={truck.gallery[0].original}
+        src={truck.gallery && truck.gallery[0] ? truck.gallery[0].original : ''}
         alt={truck.name}
       />
       <div className={cardCss.info}>

@@ -35,7 +35,7 @@ export const TrucksList = () => {
       {!loading && trucks.length === 0 && (
         <p className={trucksCss.error}>No trucks available.</p>
       )}
-      {trucks.length < 23 && trucks.length !== 0 && !loading && (
+      {trucks.length !== 0 && trucks.length % 4 === 0 && !loading && (
         <div className={trucksCss.buttonContainer}>
           <Button className="loadMore" onClick={handleLoadMore}>
             Load More

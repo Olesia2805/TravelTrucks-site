@@ -12,7 +12,7 @@ import {
 } from 'redux-persist';
 
 import trucksReducer from './trucksSlice';
-// import filtersReducer from './filtersReducer';
+import filterReducer from './filterReducer';
 
 const trucksPersistConfig = {
   key: 'trucks',
@@ -21,7 +21,7 @@ const trucksPersistConfig = {
 
 const rootReducer = combineReducers({
   trucks: persistReducer(trucksPersistConfig, trucksReducer),
-  // filters: filtersReducer,
+  filters: filterReducer,
 });
 
 export const store = configureStore({

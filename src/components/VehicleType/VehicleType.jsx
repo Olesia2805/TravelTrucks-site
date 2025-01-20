@@ -1,33 +1,43 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { setType } from '../../redux/filterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilters } from '../../redux/filterReducer';
 import FilterCard from '../FilterCard/FilterCard';
 import { BsGrid1X2, BsGrid, BsGrid3X3Gap } from 'react-icons/bs';
 import typeCss from './VehicleType.module.css';
 
 const options = [
-  { Icon: BsGrid1X2, label: 'Van' },
-  { Icon: BsGrid, label: 'Fully Integrated' },
-  { Icon: BsGrid3X3Gap, label: 'Alcove' },
+  { Icon: BsGrid1X2, label: 'Van', value: 'panelTruck' },
+  { Icon: BsGrid, label: 'Fully Integrated', value: 'fullyIntegrated' },
+  { Icon: BsGrid3X3Gap, label: 'Alcove', value: 'alcove' },
 ];
 
 const VehicleType = () => {
-  //   const dispatch = useDispatch();
-  //   const selectedBodyType = useSelector(state => state.filters.type);
+  const dispatch = useDispatch();
+  const filters = useSelector(state => state.filters.filters) || {}; // Select the filters object
+  const bodyType = filters.bodyType || ''; // Get the bodyType from filters (default to empty string)
 
-  //   const handleTypeSelect = value => {
-  //     dispatch(setType(value));
-  //   };
+  const handleSelect = value => {
+    const updatedBodyType = bodyType === value ? '' : value;
+    console.log('Current filters:', filters);
+    console.log('Updated bodyType:', updatedBodyType);
+
+    dispatch(
+      setFilters({
+        ...filters, // Spread the current filters
+        bodyType: updatedBodyType, // Update the bodyType field
+      })
+    );
+  };
 
   return (
     <div className={typeCss.typeList}>
-      {options.map(({ label, Icon }) => (
+      {options.map(({ label, value, Icon }) => (
         <FilterCard
           key={label}
           Icon={Icon}
           label={label}
           isMultipleChoice={false}
-          //   isSelected={selectedBodyType === label}
-          //   onClick={() => handleTypeSelect(label)}
+          isSelected={bodyType === value} // Check if selected
+          onClick={() => handleSelect(value)} // Dispatch action on click
         />
       ))}
     </div>
