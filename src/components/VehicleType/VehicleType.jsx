@@ -12,18 +12,16 @@ const options = [
 
 const VehicleType = () => {
   const dispatch = useDispatch();
-  const filters = useSelector(state => state.filters.filters) || {}; // Select the filters object
-  const bodyType = filters.bodyType || ''; // Get the bodyType from filters (default to empty string)
+  const filters = useSelector(state => state.filters.filters) || {};
+  const bodyType = filters.bodyType || '';
 
   const handleSelect = value => {
     const updatedBodyType = bodyType === value ? '' : value;
-    console.log('Current filters:', filters);
-    console.log('Updated bodyType:', updatedBodyType);
 
     dispatch(
       setFilters({
-        ...filters, // Spread the current filters
-        bodyType: updatedBodyType, // Update the bodyType field
+        ...filters,
+        bodyType: updatedBodyType,
       })
     );
   };
@@ -36,8 +34,8 @@ const VehicleType = () => {
           Icon={Icon}
           label={label}
           isMultipleChoice={false}
-          isSelected={bodyType === value} // Check if selected
-          onClick={() => handleSelect(value)} // Dispatch action on click
+          isSelected={bodyType === value}
+          onClick={() => handleSelect(value)}
         />
       ))}
     </div>

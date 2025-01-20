@@ -15,21 +15,18 @@ const options = [
 
 const VehicleEquipment = () => {
   const dispatch = useDispatch();
-  const filters = useSelector(state => state.filters.filters) || {}; // Select the filters object
-  const equipment = filters.equipment || ''; // Get the current equipment from filters (default to empty array)
+  const filters = useSelector(state => state.filters.filters) || {};
+  const equipment = filters.equipment || '';
 
   const handleSelect = label => {
     const updatedEquipment = equipment.includes(label)
       ? equipment.filter(item => item !== label)
       : [...equipment, label];
 
-    console.log('Current filters:', filters);
-    console.log('Updated equipment:', updatedEquipment);
-
     dispatch(
       setFilters({
-        ...filters, // Spread the current filters
-        equipment: updatedEquipment, // Update the equipment field with the new array
+        ...filters,
+        equipment: updatedEquipment,
       })
     );
   };
@@ -41,9 +38,9 @@ const VehicleEquipment = () => {
           key={label}
           Icon={Icon}
           label={label}
-          isMultipleChoice={true} // You can select multiple options
-          isSelected={equipment.includes(value)} // Check if the equipment option is selected
-          onClick={() => handleSelect(value)} // Dispatch action on click
+          isMultipleChoice={true}
+          isSelected={equipment.includes(value)}
+          onClick={() => handleSelect(value)}
         />
       ))}
     </div>

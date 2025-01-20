@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import trucksData from '../data/trucksData';
 
 const initialState = {
   trucks: [],
@@ -14,12 +13,10 @@ export const fetchTrucks = createAsyncThunk(
   'trucks/fetchTrucks',
   async (offset, { rejectWithValue }) => {
     try {
-      const response = trucksData;
-      return response.slice(offset, offset + 4);
-      // const response = await axios.get(
-      //   'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers'
-      // );
-      // return response.data.items.slice(offset, offset + 4);
+      const response = await axios.get(
+        'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers'
+      );
+      return response.data.items.slice(offset, offset + 4);
     } catch (error) {
       return rejectWithValue(error.message);
     }

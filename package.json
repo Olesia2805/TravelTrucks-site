@@ -19,7 +19,7 @@
     "hugeicons-react": "^0.3.0",
     "ldrs": "^1.0.2",
     "modern-normalize": "^3.0.1",
-    "nanoid": "^5.0.7",
+    "nanoid": "^5.0.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
@@ -28,7 +28,7 @@
     "react-router-dom": "^6.27.0",
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
-    "yup": "^1.4.0"
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

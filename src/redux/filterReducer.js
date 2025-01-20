@@ -1,15 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import trucksData from '../data/trucksData';
-
 const filterInitialState = {
-  allTrucks: [...trucksData],
+  allTrucks: [],
   filters: {
     location: '',
     bodyType: '',
     equipment: [],
   },
-  filteredTrucks: [...trucksData],
+  filteredTrucks: [],
 };
 
 export const filterReducer = createSlice({
@@ -39,9 +37,14 @@ export const filterReducer = createSlice({
     resetFilters: state => {
       state.filters = { location: '', bodyType: '', equipment: [] };
     },
+    setAllTrucks: (state, { payload }) => {
+      state.allTrucks = payload;
+      state.filteredTrucks = payload;
+    },
   },
 });
 
-export const { setFilters, applyFilters, resetFilters } = filterReducer.actions;
+export const { setFilters, applyFilters, resetFilters, setAllTrucks } =
+  filterReducer.actions;
 
 export default filterReducer.reducer;

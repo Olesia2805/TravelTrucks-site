@@ -7,15 +7,15 @@ import Navigation from './components/Navigation/Navigation';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage'));
-// const CatalogDetailsPage = lazy(() =>
-//   import('./pages/CatalogDetailsPage/CatalogDetailsPage')
-// );
-// const CatalogFeature = lazy(() =>
-//   import('./components/CatalogFeature/CatalogFeature')
-// );
-// const CatalogReviews = lazy(() =>
-//   import('./components/CatalogReviews/CatalogReviews')
-// );
+const CatalogDetailsPage = lazy(() =>
+  import('./pages/CatalogDetailsPage/CatalogDetailsPage')
+);
+const CatalogFeature = lazy(() =>
+  import('./components/CatalogFeature/CatalogFeature')
+);
+const CatalogReviews = lazy(() =>
+  import('./components/CatalogReviews/CatalogReviews')
+);
 // const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 const App = () => {
@@ -27,10 +27,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          {/* <Route path="/catalog/:id" element={<CatalogDetailsPage />}>
-          <Route path="feature" element={<CatalogFeature />} />
-          <Route path="reviews" element={<CatalogReviews />} />
-        </Route> */}
+          <Route path="/catalog/:id" element={<CatalogDetailsPage />}>
+            <Route path="feature" element={<CatalogFeature />} />
+            <Route path="reviews" element={<CatalogReviews />} />
+          </Route>
           {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
       </Suspense>

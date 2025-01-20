@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import catalogCss from './CatalogPage.module.css';
 import FiltersCategory from '../../components/FiltersCategory/FiltersCategory';
@@ -6,11 +7,30 @@ import Container from '../../components/Container/Container';
 import Section from '../../components/Section/Section';
 import Button from '../../components/Button/Button';
 import TrucksList from '../../components/TrucksList/TrucksList';
-import { applyFilters, resetFilters } from '../../redux/filterReducer';
+import {
+  applyFilters,
+  resetFilters,
+  setAllTrucks,
+} from '../../redux/filterReducer';
+import { fetchTrucks } from '../../redux/trucksSlice';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const filteredTrucks = useSelector(state => state.filters.filteredTrucks);
+  const trucks = useSelector(state => state.trucks.trucks);
+  const loading = useSelector(state => state.trucks.loading);
+
+  useEffect(() => {
+    if (!trucks.length && !loading) {
+      dispatch(fetchTrucks(0));
+    }
+  }, [dispatch, trucks, loading]);
+
+  useEffect(() => {
+    if (trucks.length) {
+      dispatch(setAllTrucks(trucks));
+    }
+  }, [dispatch, trucks]);
 
   const handleSearch = () => {
     dispatch(applyFilters());

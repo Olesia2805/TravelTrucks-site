@@ -1,0 +1,112 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    margin-bottom: 28px;
+  }
+}
+
+.name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  margin-bottom: 8px;
+}
+
+.linkReviews {
+  color: var(--main);
+}
+
+.review,
+.location {
+  font-size: 14px;
+  color: var(--main);
+  display: inline;
+}
+
+@media only screen and (min-width: 768px) {
+  .review,
+  .location {
+    font-size: 16px;
+  }
+}
+
+.location {
+  margin-left: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .location {
+    margin-left: 16px;
+  }
+}
+
+.additionInfo {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .additionInfo {
+    margin-bottom: 16px;
+  }
+}
+
+.price {
+  font-size: 18px;
+  line-height: 133%;
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  .price {
+    font-size: 24px;
+  }
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+  gap: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .images {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 28px;
+    gap: 48px;
+  }
+}
+
+.img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .img {
+    width: 292px;
+    height: 312px;
+  }
+}
+
+.description {
+  max-width: 100%;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .description {
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+}
