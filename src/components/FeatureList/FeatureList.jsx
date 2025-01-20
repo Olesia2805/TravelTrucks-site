@@ -2,8 +2,8 @@ import { BsWind, BsCupHot, BsFuelPump, BsUiRadios } from 'react-icons/bs';
 import { IoWaterOutline } from 'react-icons/io5';
 import { PiShowerLight } from 'react-icons/pi';
 import { LuMicrowave } from 'react-icons/lu';
-import { GasStoveIcon } from '@hugeicons/react';
-import { SolarIconSet } from 'solar-icon-set';
+import { GasStoveIcon } from 'hugeicons-react';
+import fridge from '../../img/fridge.svg';
 import featureCss from './FeatureList.module.css';
 
 const FeatureList = ({ truck }) => {
@@ -17,9 +17,13 @@ const FeatureList = ({ truck }) => {
     { name: 'kitchen', label: 'Kitchen', icon: <BsCupHot /> },
     { name: 'radio', label: 'Radio', icon: <BsUiRadios /> },
     { name: 'bathroom', label: 'Bathroom', icon: <PiShowerLight /> },
-    { name: 'refrigerator', label: 'Refrigerator', icon: <SolarIconSet /> },
+    {
+      name: 'refrigerator',
+      label: 'Refrigerator',
+      icon: <img src={fridge} alt="Refrigerator" />,
+    },
     { name: 'microwave', label: 'Microwave', icon: <LuMicrowave /> },
-    { name: 'gas', label: 'Gas', icon: <GasStoveIcon /> },
+    { name: 'gas', label: 'Gas', icon: <GasStoveIcon size={20} /> },
     { name: 'water', label: 'Water', icon: <IoWaterOutline /> },
   ];
 
