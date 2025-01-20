@@ -57,7 +57,6 @@ const CatalogDetailsPage = () => {
               </NavLink>
             </li>
           </ul>
-          {/* <img src={line} alt="line" /> */}
           <svg
             width="1312"
             height="2"
