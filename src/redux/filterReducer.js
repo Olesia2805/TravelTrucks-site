@@ -2,15 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import trucksData from '../data/trucksData';
 
-// Additional filtering functionality
 const filterInitialState = {
-  allTrucks: [...trucksData], // Keep the full dataset
+  allTrucks: [...trucksData],
   filters: {
     location: '',
     bodyType: '',
     equipment: [],
   },
-  filteredTrucks: [...trucksData], // Initialize with all trucks
+  filteredTrucks: [...trucksData],
 };
 
 export const filterReducer = createSlice({
@@ -18,7 +17,7 @@ export const filterReducer = createSlice({
   initialState: filterInitialState,
   reducers: {
     setFilters: (state, { payload }) => {
-      state.filters = payload; // Update filter criteria
+      state.filters = payload;
     },
     applyFilters: state => {
       const { location, bodyType, equipment } = state.filters;
@@ -35,12 +34,10 @@ export const filterReducer = createSlice({
 
         return matchesLocation && matchesBodyType && matchesEquipment;
       });
-      state.filteredTrucks = filteredTrucks; // Filtered results
-      console.log('Filtered trucks:', filteredTrucks); // Log filtered trucks for debugging
+      state.filteredTrucks = filteredTrucks;
     },
     resetFilters: state => {
       state.filters = { location: '', bodyType: '', equipment: [] };
-      state.filteredTrucks = [...state.allTrucks]; // Reset to all trucks
     },
   },
 });

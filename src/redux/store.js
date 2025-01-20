@@ -13,6 +13,7 @@ import {
 
 import trucksReducer from './trucksSlice';
 import filterReducer from './filterReducer';
+import favoritesReducer, { favoritesMiddleware } from './favoritesSlice';
 
 const trucksPersistConfig = {
   key: 'trucks',
@@ -22,6 +23,7 @@ const trucksPersistConfig = {
 const rootReducer = combineReducers({
   trucks: persistReducer(trucksPersistConfig, trucksReducer),
   filters: filterReducer,
+  favorites: favoritesReducer,
 });
 
 export const store = configureStore({
@@ -31,7 +33,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(favoritesMiddleware),
 });
 
 export const persistor = persistStore(store);

@@ -8,34 +8,39 @@ import Button from '../Button/Button';
 
 export const TrucksList = () => {
   const dispatch = useDispatch();
-  const { trucks, loading, currentOffset } = useSelector(state => state.trucks);
+  const { filteredTrucks, loading } = useSelector(state => state.filters);
+  const { currentOffset } = useSelector(state => state.trucks);
 
   useEffect(() => {
-    if (trucks.length === 0) {
+    if (filteredTrucks.length === 0) {
       dispatch(fetchTrucks(currentOffset));
+    } else if (window.innerWidth <= 340) {
+      window.scrollBy({
+        top: 500,
+        behavior: 'smooth',
+      });
     }
-  }, [dispatch, currentOffset, trucks.length]);
+  }, [dispatch, currentOffset, filteredTrucks.length]);
 
   const handleLoadMore = () => {
-    const newOffset = currentOffset + 4;
     dispatch(incrementOffset());
-    dispatch(fetchTrucks(newOffset));
+    dispatch(fetchTrucks(currentOffset + 4));
   };
 
   return (
     <>
       <ul className={trucksCss.list}>
-        {trucks.map(truck => (
-          <li key={truck.id} className={trucksCss.cardWrapper}>
-            <TruckCard truck={truck} />
+        {filteredTrucks.map(filteredTrucks => (
+          <li key={filteredTrucks.id} className={trucksCss.cardWrapper}>
+            <TruckCard truck={filteredTrucks} />
           </li>
         ))}
       </ul>
       {loading && <Loader />}
-      {!loading && trucks.length === 0 && (
-        <p className={trucksCss.error}>No trucks available.</p>
+      {!loading && filteredTrucks.length === 0 && (
+        <p className={trucksCss.noResults}>No trucks match your filters.</p>
       )}
-      {trucks.length !== 0 && trucks.length % 4 === 0 && !loading && (
+      {filteredTrucks.length !== 0 && !loading && (
         <div className={trucksCss.buttonContainer}>
           <Button className="loadMore" onClick={handleLoadMore}>
             Load More

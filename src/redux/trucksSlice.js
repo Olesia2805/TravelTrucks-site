@@ -14,7 +14,6 @@ export const fetchTrucks = createAsyncThunk(
   'trucks/fetchTrucks',
   async (offset, { rejectWithValue }) => {
     try {
-      // Use local data instead of making an API request
       const response = trucksData;
       return response.slice(offset, offset + 4);
       // const response = await axios.get(
@@ -52,15 +51,11 @@ const trucksSlice = createSlice({
       })
       .addCase(fetchTrucks.fulfilled, (state, { payload }) => {
         state.loading = false;
-        const uniqueTrucks = payload.filter(
-          newTruck => !state.trucks.some(truck => truck.id === newTruck.id)
+        const newTrucks = payload.filter(
+          truck => !state.trucks.some(t => t.id === truck.id)
         );
 
-        uniqueTrucks.forEach(truck => {
-          truck.reviewCount = truck.reviews ? truck.reviews.length : 0;
-        });
-
-        state.trucks = [...state.trucks, ...uniqueTrucks];
+        state.trucks = [...state.trucks, ...newTrucks];
       })
       .addCase(fetchTrucks.rejected, (state, action) => {
         state.loading = false;

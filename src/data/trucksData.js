@@ -45,12 +45,6 @@ const trucksData = [
         comment:
           'Exceptional RV! The Road Bear C 23-25 provided a comfortable and enjoyable journey for my family. The amenities were fantastic, and the space was well-utilized. Highly recommended!',
       },
-      {
-        reviewer_name: 'Bob',
-        reviewer_rating: 4,
-        comment:
-          'Great RV for a road trip. Spacious and well-equipped. Only minor issues with the bathroom setup, but overall a wonderful experience.',
-      },
     ],
   },
   {
@@ -152,12 +146,6 @@ const trucksData = [
         reviewer_rating: 5,
         comment:
           'The Britz 4 Berth is a fantastic choice for a comfortable and stylish road trip. The interior design is impressive, and the amenities provided a luxury touch. Highly recommended for couples seeking a premium RV experience.',
-      },
-      {
-        reviewer_name: 'Bob',
-        reviewer_rating: 3,
-        comment:
-          'Decent motorhome overall. The Britz 4 Berth provided a comfortable stay, but the lack of gas for cooking was a downside. The entertainment options were good, and the bed was comfortable. Worth considering for a short trip.',
       },
     ],
   },

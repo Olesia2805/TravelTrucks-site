@@ -6,21 +6,15 @@ import Container from '../../components/Container/Container';
 import Section from '../../components/Section/Section';
 import Button from '../../components/Button/Button';
 import TrucksList from '../../components/TrucksList/TrucksList';
-import { applyFilters } from '../../redux/filterReducer';
+import { applyFilters, resetFilters } from '../../redux/filterReducer';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const { location, bodyType, equipment } = useSelector(
-    state => state.filters.filters
-  );
   const filteredTrucks = useSelector(state => state.filters.filteredTrucks);
 
   const handleSearch = () => {
-    if (!location && !bodyType && (!equipment || equipment.length === 0)) {
-      alert('Please select at least one filter.');
-      return;
-    }
     dispatch(applyFilters());
+    dispatch(resetFilters());
   };
 
   return (
@@ -36,7 +30,13 @@ const CatalogPage = () => {
             </Button>
           </div>
           <div className={catalogCss.resultsBlock}>
-            <TrucksList trucks={filteredTrucks} />
+            {filteredTrucks.length === 0 ? (
+              <p className={catalogCss.noResults}>
+                No trucks match your filters.
+              </p>
+            ) : (
+              <TrucksList trucks={filteredTrucks} />
+            )}
           </div>
         </Section>
       </Container>

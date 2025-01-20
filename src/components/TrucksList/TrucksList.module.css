@@ -28,14 +28,14 @@
   }
 }
 
-.error {
+.noResults {
   font-size: 30px;
 }
 
 @media only screen and (min-width: 768px) {
-  .error {
+  .noResults {
     font-size: 40px;
-    width: 888px;
+    width: 875px;
   }
 }
 
